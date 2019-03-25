@@ -26,7 +26,7 @@ exports.create_a_tax = function(req, res) {
 
 
 exports.read_a_tax = function(req, res) {
-  Tax.findById(req.params.taskId, function(err, tax) {
+  Tax.findById(req.params.taxId, function(err, tax) {
     if (err)
       res.send(err);
     res.json(tax);
@@ -35,7 +35,7 @@ exports.read_a_tax = function(req, res) {
 
 
 exports.update_a_tax = function(req, res) {
-  Tax.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, tax) {
+  Tax.findOneAndUpdate({_id: req.params.taxId}, req.body, {new: true}, function(err, tax) {
     if (err)
       res.send(err);
     res.json(tax);
@@ -47,7 +47,7 @@ exports.delete_a_tax = function(req, res) {
 
 
   Tax.remove({
-    _id: req.params.taskId
+    _id: req.params.taxId
   }, function(err, tax) {
     if (err)
       res.send(err);
